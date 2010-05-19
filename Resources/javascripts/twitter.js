@@ -141,10 +141,18 @@ function retrieveTwitterFeed() {
  
 var refreshButton = Titanium.UI.createButton({systemButton:Titanium.UI.iPhone.SystemButton.REFRESH});
 refreshButton.addEventListener('click',function()	{
-  Titanium.App.fireEvent('show_indicator',{});
-  data = [];
-  rowData = [];
-  retrieveTwitterFeed();
+  if (Titanium.Network.online == false){
+    Titanium.App.fireEvent('hide_indicator',{});
+  	Titanium.UI.createAlertDialog({
+  	  title:"Connection Required",
+  	  message:"We cannot detect a network connection.  You need an active network connection to be able to continue using Nature Nearby features."
+  	}).show();
+  } else {
+    Titanium.App.fireEvent('show_indicator',{});
+    data = [];
+    rowData = [];
+    retrieveTwitterFeed();
+  }
 });
 Titanium.UI.currentWindow.setLeftNavButton(refreshButton);
 
