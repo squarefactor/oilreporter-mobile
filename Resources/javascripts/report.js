@@ -79,7 +79,7 @@ var mediaLabel = Ti.UI.createLabel({
   height: 30,
   color: '#fff',
 	font:{fontSize:16, fontWeight:'bold'},
-  text:'Add Photo or Video'
+  text:'Add a Photo'
 });
 var mediaDescLabel = Ti.UI.createLabel({
   top: (Ti.Platform.name != 'android' ? 120 : 128),
@@ -291,13 +291,13 @@ var currentMedia = false;
 
 var chooseMediaSource = function(event) {
   switch(event.index) {
+    // case 0:
+    //   newVideo();
+    //   break;
     case 0:
-      newVideo();
-      break;
-    case 1:
       newPhoto();
       break;
-    case 2:
+    case 1:
       chooseFromGallery();
       break;
     case event.destructive:
@@ -317,12 +317,12 @@ chooseMedia.addEventListener('click', chooseMediaSource);
 
 function displayMediaChooser() {
   if(currentImageAdded) {
-    chooseMedia.options = ['New Video', 'New Photo', 'Choose Existing', 'Remove Existing', 'Cancel'];
-    chooseMedia.destructive = 3;  
-    chooseMedia.cancel = 4;
-  } else {
-    chooseMedia.options = ['New Video', 'New Photo', 'Choose Existing','Cancel'];
+    chooseMedia.options = ['New Photo', 'Choose Existing', 'Remove Existing', 'Cancel'];
+    chooseMedia.destructive = 2;  
     chooseMedia.cancel = 3;
+  } else {
+    chooseMedia.options = ['New Photo', 'Choose Existing','Cancel'];
+    chooseMedia.cancel = 2;
   }
   chooseMedia.show();
 }
