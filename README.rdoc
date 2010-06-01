@@ -1,7 +1,14 @@
-= Oil Reporter
+= Oil Reporter Mobile
 
-Built using Appcelerator Titanium Mobile.  This single project works on
-both iPhone and Android devices.  
+Hi, and thanks for checking out Oil Reporter!  To get started developing your own OilReporter.org
+client application:
+
+1. Obtain an API key from OilReporter.org
+2. Download and install the iPhone and/or Android SDKs
+3. Download and install Titanium Developer and the Titanium Mobile SDK
+4. Use this project as a starting point for your own application!
+
+Oil Reporter was developed by Intridea, Inc. in conjunction with CrisisCommons and Appcelerator.
 
 == About Oil Reporter
 
@@ -15,4 +22,3 @@ damaged and was leaking oil into the Gulf. Oil Reporter enables people to
 help with the recovery effort by using real-time check-ins to report what 
 they're seeing on the ground. Users can upload photos and videos, reporting 
 oil sighting, harmed wildlife sightings and much more.
-
