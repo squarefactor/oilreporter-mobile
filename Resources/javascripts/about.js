@@ -50,4 +50,4 @@ var webView = Ti.UI.createWebView({
   html: "<html><body style='padding: 10px; font-size:14px;color:#fff;font-family:sans-serif;'>"+html+'</body></html>'
 });
 
-win.add(webView)
+win.add(webView);

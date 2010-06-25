@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-<id>com.intridea.oilreporter</id>
+<id>org.nwf.oilreporter</id>
 <name>Oil Reporter</name>
 <version>1.0.1</version>
 <publisher>Intridea, Inc.</publisher>
 <url>http://oilreporter.org</url>
 <description>No description provided</description>
 <copyright>2010 by blim</copyright>
-<icon>appicon.png</icon>
+<icon>default_app_logo.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>true</prerendered-icon>
     <statusbar-style>black</statusbar-style>

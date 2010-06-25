@@ -49,23 +49,23 @@ var seeTitleLabel = Ti.UI.createLabel({
   width: 300,
   height: 30,
   color: '#fff',
-	font:{fontSize:18, fontWeight:'bold'},
+  font:{fontSize:18, fontWeight:'bold'},
   text:'What Do You See?'
 });
 seeView.add(seeTitleLabel);
 
 var seeField = Ti.UI.createTextArea({
-	value:'',
-	top: 40,
-	left: 10,
-	height: 54,
-	width:280,
-	keyboardType:Ti.UI.KEYBOARD_ASCII,
-	color:'#222',
-	font:{fontSize: 14, fontWeight:"normal"},  
-	borderWidth:2,
-	borderColor:'#303030',
-	borderRadius:6
+  value:'',
+  top: 40,
+  left: 10,
+  height: 54,
+  width:280,
+  keyboardType:Ti.UI.KEYBOARD_ASCII,
+  color:'#222',
+  font:{fontSize: 14, fontWeight:"normal"},
+  borderWidth:2,
+  borderColor:'#303030',
+  borderRadius:6
 });
 seeField.addEventListener("return",function(e){
   seeField.blur();
@@ -78,7 +78,7 @@ var mediaLabel = Ti.UI.createLabel({
   width: 280,
   height: 30,
   color: '#fff',
-	font:{fontSize:16, fontWeight:'bold'},
+  font:{fontSize:16, fontWeight:'bold'},
   text:'Add a Photo'
 });
 var mediaDescLabel = Ti.UI.createLabel({
@@ -87,7 +87,7 @@ var mediaDescLabel = Ti.UI.createLabel({
   width: 280,
   height: 30,
   color: '#eee',
-	font:{fontSize:12, fontWeight:'normal'},
+  font:{fontSize:12, fontWeight:'normal'},
   text:'Share with us what you\'re seeing'
 });
 seeView.add(mediaDescLabel);
@@ -116,8 +116,8 @@ var mediaAddButton = Ti.UI.createButton({
   width: 44,
   height: 44,
   backgroundImage: '../images/icon_camera.png',
-	backgroundSelectedImage: '../images/icon_camera.png',
-	backgroundDisabledImage: '../images/icon_camera.png'
+  backgroundSelectedImage: '../images/icon_camera.png',
+  backgroundDisabledImage: '../images/icon_camera.png'
 });
 
 mediaAddButton.addEventListener('click', function() {
@@ -144,7 +144,7 @@ var oilTitleLabel = Ti.UI.createLabel({
   width: 300,
   height: 30,
   color: '#fff',
-	font:{fontSize:18, fontWeight:'bold'},
+  font:{fontSize:18, fontWeight:'bold'},
   text:"How Much Oil Do You See? (5)"
 });
 oilView.add(oilTitleLabel);
@@ -155,7 +155,7 @@ var oilDescLabel = Ti.UI.createLabel({
   width: 300,
   height: 30,
   color: '#eee',
-	font:{fontSize:12, fontWeight:'normal'},
+  font:{fontSize:12, fontWeight:'normal'},
   text:"0 is open water, 10 is thick oil"
 });
 oilView.add(oilDescLabel);
@@ -173,7 +173,7 @@ var oilSlider = Ti.UI.createSlider({
 oilView.add(oilSlider);
 
 oilSlider.addEventListener('change',function(e) {
-	oilTitleLabel.text = "How Much Oil Do You See? (" + Math.round(oilSlider.value)+")";
+  oilTitleLabel.text = "How Much Oil Do You See? (" + Math.round(oilSlider.value)+")";
 });
 
 scrollView.add(oilView);
@@ -237,7 +237,7 @@ var wetTitleLabel = Ti.UI.createLabel({
   width: 300,
   height: 30,
   color: '#fff',
-	font:{fontSize:18, fontWeight:'bold'},
+  font:{fontSize:18, fontWeight:'bold'},
   text:"Impact to The Wetlands? (5)"
 });
 wetView.add(wetTitleLabel);
@@ -248,7 +248,7 @@ var wetDescLabel = Ti.UI.createLabel({
   width: 300,
   height: 30,
   color: '#eee',
-	font:{fontSize:12, fontWeight:'normal'},
+  font:{fontSize:12, fontWeight:'normal'},
   text:"0 is no impact, 10 is severe impact"
 });
 wetView.add(wetDescLabel);
@@ -266,7 +266,7 @@ var wetSlider = Ti.UI.createSlider({
 wetView.add(wetSlider);
 
 wetSlider.addEventListener('change',function(e) {
-	wetTitleLabel.text = "Impact to The Wetlands? (" + Math.round(wetSlider.value)+")";
+  wetTitleLabel.text = "Impact to The Wetlands? (" + Math.round(wetSlider.value)+")";
 });
 
 scrollView.add(wetView);
@@ -318,7 +318,7 @@ chooseMedia.addEventListener('click', chooseMediaSource);
 function displayMediaChooser() {
   if(currentImageAdded) {
     chooseMedia.options = ['New Photo', 'Choose Existing', 'Remove Existing', 'Cancel'];
-    chooseMedia.destructive = 2;  
+    chooseMedia.destructive = 2;
     chooseMedia.cancel = 3;
   } else {
     chooseMedia.options = ['New Photo', 'Choose Existing','Cancel'];
@@ -330,9 +330,9 @@ function displayMediaChooser() {
 function newVideo() {
   if(Ti.Platform.name == 'android') {
     Ti.UI.createAlertDialog({
-		  title:'Sorry',
-		  message:'Video submission is currently not supported for this device, yet.'
-		}).show();
+      title:'Sorry',
+      message:'Video submission is currently not supported for this device, yet.'
+    }).show();
   }
   Ti.Media.showCamera({
     mediaTypes: [Ti.Media.MEDIA_TYPE_VIDEO],
@@ -344,10 +344,10 @@ function newVideo() {
         mediaButtonBg.remove(currentImageView);
         currentImageAdded = false;
       }
-      
+
       Ti.UI.createAlertDialog({
-      	title:'Video Added',
-      	message:'Your video has been attached and is ready to be submitted.'
+        title:'Video Added',
+        message:'Your video has been attached and is ready to be submitted.'
       }).show();
 
 
@@ -357,16 +357,16 @@ function newVideo() {
       mediaButtonBg.add(currentImageView);
       currentImageAdded = true;
     },
-		error:function(error) {
-			Ti.UI.createAlertDialog({
-			  title:'Sorry',
-			  message:'This device cannot record videos.'
-			}).show();
-		},
-		allowImageEditing:false,
-		saveToPhotoGallery:true,
-		videoMaximumDuration:10000,
-		videoQuality:Titanium.Media.QUALITY_HIGH
+    error:function(error) {
+      Ti.UI.createAlertDialog({
+        title:'Sorry',
+        message:'This device cannot record videos.'
+      }).show();
+    },
+    allowImageEditing:false,
+    saveToPhotoGallery:true,
+    videoMaximumDuration:10000,
+    videoQuality:Titanium.Media.QUALITY_HIGH
   });
 }
 
@@ -381,7 +381,7 @@ function newPhoto() {
         mediaButtonBg.remove(currentImageView);
         currentImageAdded = false;
       }
-      
+
       currentImageView = Ti.UI.createImageView({
                         top: 1,
                         left: 1,
@@ -397,14 +397,14 @@ function newPhoto() {
       mediaButtonBg.add(currentImageView);
       currentImageAdded = true;
     },
-		error:function(error) {
-			Ti.UI.createAlertDialog({
-			  title:'Sorry',
-			  message:'This device either cannot take photos or there was a problem saving this photo.'
-			}).show();
-		},
-		allowImageEditing:true,
-		saveToPhotoGallery:true
+    error:function(error) {
+      Ti.UI.createAlertDialog({
+        title:'Sorry',
+        message:'This device either cannot take photos or there was a problem saving this photo.'
+      }).show();
+    },
+    allowImageEditing:true,
+    saveToPhotoGallery:true
   });
 }
 
@@ -419,7 +419,7 @@ function chooseFromGallery() {
         mediaButtonBg.remove(currentImageView);
         currentImageAdded = false;
       }
-      
+
       currentImageView = Ti.UI.createImageView({
                         top: 1,
                         left: 1,
@@ -439,18 +439,18 @@ function chooseFromGallery() {
 };
 
 var clearButton = Titanium.UI.createButton({title:'Clear'});
-clearButton.addEventListener('click',function()	{
+clearButton.addEventListener('click',function()  {
   var clearAlert = Titanium.UI.createAlertDialog({
-  	title:'Clear All Values?',
-  	message:'Are you sure you want to clear all the values in the fields below?'
+    title:'Clear All Values?',
+    message:'Are you sure you want to clear all the values in the fields below?'
   });
   clearAlert.buttonNames = ['Yes', 'No'];
-	clearAlert.addEventListener("click",function(e) {
-	  if(e.index == 0) {
+  clearAlert.addEventListener("click",function(e) {
+    if(e.index == 0) {
       clearAllValues();
-	  }
-	});
-	clearAlert.show();
+    }
+  });
+  clearAlert.show();
 });
 Titanium.UI.currentWindow.setLeftNavButton(clearButton);
 
@@ -468,24 +468,26 @@ function clearAllValues(){
 }
 
 function showSuccess() {
-  if(Ti.Platform.name == 'android')
+  if(Ti.Platform.name == 'android'){
     androidActivityIndicator.hide();
-    
+  }
+
   Ti.UI.createAlertDialog({
-  	title:'Success!',
-  	message:'Your report has been submitted.  Thank you!'
+    title:'Success!',
+    message:'Your report has been submitted.  Thank you!'
   }).show();
   clearAllValues();
 }
 
 var xhrOnError = function() {
-  if(Ti.Platform.name == 'android')
+  if(Ti.Platform.name == 'android'){
     androidActivityIndicator.hide();
-    
+  }
+
   Ti.App.fireEvent('hide_indicator',{});
   Ti.UI.createAlertDialog({
-  	title:'Sorry',
-  	message:'There was a problem submitting your oil report.  Please try again soon.'
+    title:'Sorry',
+    message:'There was a problem submitting your oil report.  Please try again soon.'
   }).show();
 };
 
@@ -503,7 +505,7 @@ Ti.App.addEventListener('submit_form', function(options) {
                                   organization_pin : (properties.getString("orgPin") == null ? null : properties.getString("orgPin")),
                                   device_id        : Ti.Platform.id
                                });
-                               
+
   var xhr = Titanium.Network.createHTTPClient();
   xhr.onerror = xhrOnError;
 
@@ -522,21 +524,22 @@ Ti.App.addEventListener('submit_form', function(options) {
         if (!reportId) { Ti.API.error('Could not eval() responseText'); }
         Ti.App.fireEvent('hide_indicator',{});
         showSuccess();
-      }      
+      }
     } else {
-      if(Ti.Platform.name == 'android')
+      if(Ti.Platform.name == 'android'){
         androidActivityIndicator.hide();
-        
+      }
+
       Ti.App.fireEvent('hide_indicator',{});
       Ti.UI.createAlertDialog({
-      	title:'Sorry',
-      	message:'There was a problem submitting your oil report.  Please try again soon.'
+        title:'Sorry',
+        message:'There was a problem submitting your oil report.  Please try again soon.'
       }).show();
     }
   };
-  
+
   Ti.API.info("About to submit ..." + jsonData);
-  
+
   xhr.open('POST', hostname + '/reports');
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.setRequestHeader('Accept', 'application/json');
@@ -558,13 +561,13 @@ Ti.App.addEventListener('upload_picture', function(options) {
     Ti.App.fireEvent('hide_indicator', {});
     showSuccess();
   };
-  
-  var payload = { 
+
+  var payload = {
     "api_key": api_key,
-    "media": currentMedia, 
-    "_method": "PUT" 
+    "media": currentMedia,
+    "_method": "PUT"
   };
-    
+
   xhr.open('PUT', hostname + '/reports/' + options.reportId);
   xhr.send(payload);
 });
@@ -578,12 +581,12 @@ submitButton.addEventListener('click', function() {
 
 function submitReport() {
   seeField.blur(); // Drop keyboard
-  
+
   if (Titanium.Network.online == false){
-  	Titanium.UI.createAlertDialog({
-  	  title:"Connection Required",
-  	  message:"We cannot detect a network connection.  You need an active network connection to be able to submit oil reports."
-  	}).show();
+    Titanium.UI.createAlertDialog({
+      title:"Connection Required",
+      message:"We cannot detect a network connection.  You need an active network connection to be able to submit oil reports."
+    }).show();
   } else if(seeField.value != null && seeField.value != "" && seeField.value.length > 0) {
     if(Ti.Platform.name == 'android') {
       androidActivityIndicator = Titanium.UI.createActivityIndicator({message:'Submitting'});
@@ -594,34 +597,34 @@ function submitReport() {
     if (Ti.Platform.name != 'android' && Ti.Geolocation.locationServicesEnabled == false) {
         Ti.App.fireEvent('hide_indicator',{});
         Titanium.UI.createAlertDialog({
-      	  title:"Location Required",
-      	  message:"Sorry, you need to have location services enabled to be able to submit reports."
-      	}).show();
-      	return;
+          title:"Location Required",
+          message:"Sorry, you need to have location services enabled to be able to submit reports."
+        }).show();
+        return;
     }
-      
+
     Titanium.Geolocation.getCurrentPosition(function(e) {
       Ti.App.fireEvent('change_title', { title: 'Submitting' });
-  		Ti.API.info("Received geolocation response");
-    
-  		if (e.error) {
-  		  if(Ti.Platform.name == 'android') {
+      Ti.API.info("Received geolocation response");
+
+      if (e.error) {
+        if(Ti.Platform.name == 'android') {
           androidActivityIndicator.hide();
         }
-        
+
         Ti.App.fireEvent('hide_indicator',{});
-      	Titanium.UI.createAlertDialog({
-      	  title:"Location Required",
-      	  message:"There was a problem trying to retrieve your location.  Please try again soon."
-      	}).show();
-  		} else {
-  		  Ti.App.fireEvent('submit_form', { latitude: e.coords.latitude, longitude: e.coords.longitude });
+        Titanium.UI.createAlertDialog({
+          title:"Location Required",
+          message:"There was a problem trying to retrieve your location.  Please try again soon."
+        }).show();
+      } else {
+        Ti.App.fireEvent('submit_form', { latitude: e.coords.latitude, longitude: e.coords.longitude });
       }
-  	});
+    });
   } else {
     Ti.UI.createAlertDialog({
-    	title:'Sorry!',
-    	message:'You must make sure to at least let us know what you see in the field above before submitting.'
+      title:'Sorry!',
+      message:'You must make sure to at least let us know what you see in the field above before submitting.'
     }).show();
   }
 }
@@ -631,16 +634,16 @@ if(Ti.Platform.name == "android") {
   var clearMenuItem = Ti.UI.Android.OptionMenu.createMenuItem({title : 'Clear Form'});
   clearMenuItem.addEventListener('click', function(){
     var clearAlert = Titanium.UI.createAlertDialog({
-    	title:'Clear All Values?',
-    	message:'Are you sure you want to clear all the values in the fields below?'
+      title:'Clear All Values?',
+      message:'Are you sure you want to clear all the values in the fields below?'
     });
     clearAlert.buttonNames = ['Yes', 'No'];
-  	clearAlert.addEventListener("click",function(e) {
-  	  if(e.index == 0) {
+    clearAlert.addEventListener("click",function(e) {
+      if(e.index == 0) {
         clearAllValues();
-  	  }
-  	});
-  	clearAlert.show();
+      }
+    });
+    clearAlert.show();
   });
   var submitMenuItem = Ti.UI.Android.OptionMenu.createMenuItem({
       title : 'Submit Report'
@@ -651,7 +654,7 @@ if(Ti.Platform.name == "android") {
 
   menu.add(clearMenuItem);
   menu.add(submitMenuItem);
-  Ti.UI.Android.OptionMenu.setMenu(menu); 
+  Ti.UI.Android.OptionMenu.setMenu(menu);
 }
 
 Ti.App.fireEvent('hide_indicator');
